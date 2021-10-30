@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @asta-kunn
 - 👀 I’m interested in coding
-- 🌱 I’m currently learning html lenguage
+- 🌱 I’m currently learning html,dart,python,C++, ect
 - 💞️ I’m looking to collaborate on discord
 - 📫 How to reach me rifqiadli__ on instagram
 
