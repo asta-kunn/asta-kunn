@@ -1,0 +1,39 @@
+#Nama       = Muhammad Rifqi Adli Gumay
+#NPM        = 2106752224
+#Kelas      = DDP 1 G
+#Program Menghitung Luas Daerah yang dicat Masing-masing Warna
+
+#mengimport nilai Pi dari math Python
+import math
+pi = math.pi
+
+#Memberi input masukan berdasarkan radius lingkaran
+radius_lingkaran = float(input("Masukkan radius lingkaran: "))
+
+#Determine rumus persegi, lingkaran, dan segitiga yang akan dicari
+#cat merah = persegi
+#cat ungu = segitiga
+#cat kuning = lingkaran
+#tinggi segitiga = radius lingkaran
+luas_segitiga = round((0.5 * radius_lingkaran**2 * 2), 2) #luas daerah cat ungu 
+luas_lingkaran = round((pi*radius_lingkaran**2 - luas_segitiga),2) #luas daerah cat kuning 
+luas_persegi = round(((4 * radius_lingkaran **2) - (luas_lingkaran + luas_segitiga)), 2) #luas daerah cat merah 
+'''
+sintaks fungsi round(number, n digits) berfungsi sebagai pembulatan kebawah terdekat,
+dan ndigit berfungsi untuk menentukan digit belakang koma
+'''
+#menampilkan output hasil daerah
+
+print("Luas daerah cat merah: ","{:.2f}".format(luas_persegi))
+print("Luas daerah cat kuning: ","{:.2f}".format(luas_lingkaran))
+print("Luas daerah cat ungu: ","{:.2f}".format(luas_segitiga))
+
+'''
+saya menggunakan format supaya output yang belakang nya 0 juga ikut termasuk ,
+jika hanya menggunakan round saja, maka desimal 0 setelah 1 angka dibelakang koma tidak terbaca
+seperti contoh pada input 0, jika kita tidak menggunakan format, maka hanya tertulis 0.0 saja
+jika menggunakan format, maka 0 nya juga termasuk dan tertulis 0.00
+sama halnya dengan contoh input 2
+'''
+
+
