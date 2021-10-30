@@ -1,0 +1,127 @@
+#Nama       = Muhammad Rifqi Adli Gumay
+#NPM        = 2106752224
+#Kelas      = DDP 1 G
+#Asdos      = NA
+fhand = input("Masukkan nama file input: ")
+print()
+ganti = []
+akhir = []
+happines = 50
+saddnes = 50
+anger = 50
+'''
+dengan menggunakan function dan global variabel kita bisa mengubah value happines, saddness, dan anger
+'''
+def senyum():
+    global happines #agar happines terpanggil
+    global saddnes
+    happines = happines + 9
+    saddnes = saddnes - 6
+def sedih():
+    global saddnes
+    global anger
+    saddnes = saddnes + 10
+    anger = anger - 8
+def marah():
+    global anger
+    global happines
+    anger = anger + 13
+    happines = happines - 5
+try:
+    '''
+    >mengganti kata (smile) dengan emoji \U0001f603
+    >mengganti kata (sad) dengan emoji \U0001f622
+    >mengganti kata (angry) dengan emoji \U0001f621
+    '''
+    file_in = open(fhand, "r")
+    data = file_in.readlines()
+    if data == []:
+        print("File ada, tapi kosong")
+        exit()
+    else:
+        for cek in data:
+            kalimat = cek.split()
+            if kalimat [1] == "Chanek:":
+                for line in kalimat:
+                    if line == "(smile)":
+                        ganti.append("\U0001f603") 
+                        senyum()
+                    elif line == "(sad)":
+                        ganti.append("\U0001f622")
+                        sedih()
+                    elif line == "(angry)":
+                        ganti.append("\U0001f621")
+                        marah()
+                    else:
+                        ganti.append(line)
+            else:
+                for line in kalimat:
+                    if line == "(smile)":
+                        ganti.append("\U0001f603") 
+                    elif line == "(sad)":
+                        ganti.append("\U0001f622")
+                    elif line == "(angry)":
+                        ganti.append("\U0001f621")
+                    else:
+                        ganti.append(line)
+            akhir.append(' '.join(ganti)) #iar list ganti jadi satu string
+            ganti.clear()
+        for yeay in akhir:
+            print (yeay)
+        file_in.close()
+        '''
+        > pengukuran suasana hati Pak Chanek
+        > Jika Happiness lebih besar dari Sadness dan Anger, kesimpulan Pak Chanek sedang bahagia.
+        > Jika Sadness lebih besar dari Happiness dan Anger, kesimpulan Pak Chanek sedang sedih.
+        > Jika Anger lebih besar dari Happiness dan Sadness, kesimpulan Pak Chanek sedang marah.
+        > Jika terdapat dua aspek mood yang bernilai sama dan lebih besar dari satu aspek mood yang lain, kesimpulan merupakan kombinasi dari 1), 2), dan 3) dengan penghubung “atau”. Prioritas dari bahagia, sedih, kemudian marah.
+        > Jika ketiga aspek bernilai sama, kesimpulan tidak ditemukan.
+        >Nilai value Max 100 dan Min 100
+        '''
+        if happines > 100:
+            x = happines - 100
+            happines = happines - x
+        if saddnes > 100:
+            y = saddnes - 100
+            saddnes = saddnes - y
+        if anger > 100:
+            z = anger - 100
+            anger = anger - z
+        if happines < 0:
+            happines = happines - happines
+        if saddnes < 0:
+            saddnes = saddnes - saddnes
+        if anger < 0:
+            anger = anger - anger
+        print()
+        print("Mengukur suasana hati....")
+        print()
+        print("##### Hasil Pengukuran #####")
+        print("Happiness =",happines,"| Sadness =",saddnes,"| Anger =",anger)
+        print()
+        if happines > saddnes and anger:
+            print("##### Kesimpulan #####")
+            print("Pak chanek sedang bahagia")
+        elif saddnes > happines and anger:
+            print("##### Kesimpulan #####")
+            print("Pak chanek sedang sedih")
+        elif anger > happines and saddnes:
+            print("##### Kesimpulan #####")
+            print("Pak Chanek sedang marah")
+        elif (anger == happines) > saddnes:
+            print("##### Kesimpulan #####")
+            print("Pak Chanek sedang bahagia atau marah")
+        elif (happines == saddnes) > anger:
+            print("##### Kesimpulan #####")
+            print("Pak Chanek sedang bahagia atau sedih")
+        elif (saddnes == anger) > happines:
+            print("##### Kesimpulan #####")
+            print("Pak Chanek sedang sedih atau marah")
+        else:
+            print("##### Kesimpulan #####")
+            print("Kesimpulan tidak ditemukan")
+except FileNotFoundError:
+    print("File input tidak ditemukan :(")
+
+
+            
