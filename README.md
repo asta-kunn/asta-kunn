@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @asta-kunn
+- 👋 Hi, I’m Muhammad Rifqi Adli Gumay
 - 👀 I’m interested in coding
 - 🌱 I’m currently learning html,dart,python,C++, ect
 - 💞️ I’m looking to collaborate on discord
